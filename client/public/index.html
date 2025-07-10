@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> User Management App</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f7f6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background-color: #0056b3;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .navbar .links a {
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: #ffffff;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .navbar .links a:hover {
+      background-color: #003d79;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .home { background-color: #007bff; }
+    .youtube { background-color: #ff0000; }
+    .courses { background-color: #ff6347; }
+    .linkedin { background-color: #0077b5; }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .content {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 900px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0056b3;
+      margin-bottom: 20px;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    h2 {
+      color: #444;
+      margin-bottom: 15px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .form-container {
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .form-group button {
+      width: 100%;
+      background-color: #28a745;
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-group button:hover {
+      background-color: #218838;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .user-list-container {
+      margin-top: 30px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      padding: 12px;
+      border-bottom: 1px solid #e9ecef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    li:hover {
+      background-color: #f1f3f5;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .buttons-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .edit, .delete {
+      background-color: transparent;
+      color: #333;
+      border: 2px solid;
+      border-radius: 6px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+      font-size: 14px;
+    }
+
+    .edit {
+      border-color: #ffc107;
+      color: #ffc107;
+    }
+
+    .delete {
+      border-color: #dc3545;
+      color: #dc3545;
+    }
+
+    .edit:hover {
+      background-color: #ffc107;
+      color: #ffffff;
+    }
+
+    .delete:hover {
+      background-color: #dc3545;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">User Management</div>
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <h1>User Management App</h1>
+
+      <!-- Add User Form -->
+      <div class="form-container">
+        <h2>Add User</h2>
+        <form id="addUserForm">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <label for="role">Role:</label>
+            <select id="role" required>
+              <option value="User">User</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="submit-btn">Add User</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- User List -->
+      <div class="user-list-container">
+        <h2>User List</h2>
+        <ul id="userList">
+          <!-- User items will be dynamically added here -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="bundle.js"></script>
+</body>
+</html>

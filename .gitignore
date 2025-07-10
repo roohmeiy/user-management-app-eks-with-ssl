@@ -1,0 +1,34 @@
+# Root
+.env
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS/IDE-specific
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Node.js dependencies
+client/node_modules/
+server/node_modules/
+
+# Client build output
+client/dist/
+
+# Server logs or temp files
+server/logs/
+server/tmp/
+server/*.log
+
+# Docker-related (if you use docker volumes or local files)
+**/docker-volume/
+*.local
+
+# Optional: ignore lockfiles (if you're not locking dependencies)
+# client/package-lock.json
+# server/package-lock.json
