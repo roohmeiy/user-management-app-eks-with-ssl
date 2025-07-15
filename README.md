@@ -161,4 +161,7 @@ After following the setup instructions, you can access the application by naviga
 - **Edit User:** Click the "Edit" button next to a user entry to update their details.
 - **Delete User:** Click the "Delete" button next to a user entry to remove them from the list.
 
+- ingress -> /api
+- else -> svc:port/api
+
 
