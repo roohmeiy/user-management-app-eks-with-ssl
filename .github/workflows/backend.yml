@@ -50,6 +50,6 @@ jobs:
         run: |
           git config --global user.email "its.official.pihu@gmail.com"
           git config --global user.name "Payal Sharma"
-          git add helm/user-managemnet-frontend-chart/values.yaml
-          git commit -m "Update React app tag in Helm chart"
+          git add helm/user-managemnet-backend/values.yaml
+          git commit -m "Update backend tag in Helm chart"
           git push
