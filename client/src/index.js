@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = document.getElementById('email').value;
     const role = document.getElementById('role').value;
 
-    fetch('/api/users', {
+    fetch('http://a825770a5e53f4601b236f865431564e-212702488.us-east-1.elb.amazonaws.com:5000/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = prompt('Enter new email:');
       const role = prompt('Enter new role (User/Admin):');
       if (name && email && role) {
-        fetch(`/api/users/${userId}`, {
+        fetch(`http://a825770a5e53f4601b236f865431564e-212702488.us-east-1.elb.amazonaws.com:5000/api/users/${userId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('delete')) {
       const userId = event.target.getAttribute('data-id');
       if (confirm('Are you sure you want to delete this user?')) {
-        fetch(`/api/users/${userId}`, {
+        fetch(`http://a825770a5e53f4601b236f865431564e-212702488.us-east-1.elb.amazonaws.com:5000/api/users/${userId}`, {
           method: 'DELETE',
         })
         .then(response => response.json())
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Fetch and display users
 function fetchUsers() {
-  fetch('/api/users')
+  fetch('http://a825770a5e53f4601b236f865431564e-212702488.us-east-1.elb.amazonaws.com:5000/api/users')
     .then(response => response.json())
     .then(users => {
       const userList = document.getElementById('userList');
@@ -91,4 +91,3 @@ function fetchUsers() {
       console.error('Error fetching users:', error);
     });
 }
-

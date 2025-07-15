@@ -10,7 +10,7 @@ function App() {
 
     // Fetch users from the backend
     useEffect(() => {
-        fetch('/api/users')
+        fetch('http://a825770a5e53f4601b236f865431564e-212702488.us-east-1.elb.amazonaws.com:5000/api/users')
             .then(res => res.json())
             .then(data => setUsers(data))
             .catch(err => console.error('Error fetching users:', err));
@@ -22,7 +22,7 @@ function App() {
 
         const newUser = { name, email, role };
 
-        fetch('api/users', {
+        fetch('http://a825770a5e53f4601b236f865431564e-212702488.us-east-1.elb.amazonaws.com:5000/api/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ function App() {
                     <a className="instagram" href="https://www.instagram.com/devopsshack/">Instagram</a>
                 </div>
             </div>
-            <h1>DevOps Shack User Management App</h1>
+            <h1> User Management App</h1>
             <div className="form-container">
                 <input type="text" placeholder="New user name" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="email" placeholder="New user email" value={email} onChange={(e) => setEmail(e.target.value)} />

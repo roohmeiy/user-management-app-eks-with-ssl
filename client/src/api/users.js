@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = '/api/users'; // Adjust if necessary
+const API_URL = 'http://a825770a5e53f4601b236f865431564e-212702488.us-east-1.elb.amazonaws.com:5000/api/users'; // Adjust if necessary
 
 export const getUsers = () => axios.get(API_URL);
 export const createUser = (user) => axios.post(API_URL, user);
